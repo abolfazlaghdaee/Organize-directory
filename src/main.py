@@ -7,11 +7,7 @@ class OrganizeDirectory:
     This class is used to organize the directory.
     """
 
-    def __init__(self, directory):
-        self.directory = Path(directory)
-
-        if not self.directory.exists():
-            raise FileNotFoundError(f"{self.directory} does not exist.")
+    def __init__(self ):
 
 
 
@@ -26,10 +22,15 @@ class OrganizeDirectory:
             '.mp3' : 'Music',
             'zip' : 'compressed',
                     }
-    def __call__(self ):
+    def __call__(self, directory ):
+            directory = Path(directory)
+
+            if not directory.exists():
+                raise FileNotFoundError(f"{directory} does not exist.")
+
             files_extention = []
 
-            for file_path in self.directory.iterdir():
+            for file_path in directory.iterdir():
                 if file_path.is_dir():
                     continue
                     
@@ -43,9 +44,9 @@ class OrganizeDirectory:
                 
                 
                 if file_path.suffix not in self.ext_directories:
-                    DES_DIR = self.directory / 'othres'
+                    DES_DIR =directory / 'othres'
                 else:    
-                    DES_DIR  = self.directory / self.ext_directories[file_path.suffix]
+                    DES_DIR  = directory / self.ext_directories[file_path.suffix]
                 
 
                 DES_DIR.mkdir(exist_ok =True)
@@ -57,8 +58,8 @@ class OrganizeDirectory:
 
 
 if __name__ == '__main__':
-    org_file = OrganizeDirectory('/mnt/f/DOWNLOADS')
-    org_file()
+    org_file = OrganizeDirectory()
+    org_file('/home/Yourspecialname/Desktop/test')  #it's  an example
     print("Done!")
 
 
