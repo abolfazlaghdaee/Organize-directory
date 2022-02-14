@@ -1,2 +1,9 @@
 # Organize-directory
-organize directory by moving files to to correct directories
+organize directory by moving files to  correct directories
+
+## How to Run
+First add src to you  `PYTHONPATH`
+then run :
+```
+python src/organize_directory.py
+```
