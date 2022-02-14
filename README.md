@@ -5,5 +5,5 @@ organize directory by moving files to  correct directories
 First add src to you  `PYTHONPATH`
 then run :
 ```
-python src/organize_directory.py
+python src/main.py
 ```
